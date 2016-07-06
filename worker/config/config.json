@@ -1,0 +1,10 @@
+{
+    "bucket": "godziatkowski-lab4",
+    "queueUrl": "https://sqs.us-west-2.amazonaws.com/983680736795/GodziatkowskiSQS",
+    "simpleDb": {
+        "domains": {
+            "jobs": "godziatkowski-worker-jobs",
+            "logs": "godziatkowski-worker-logs"
+        }
+    }
+}

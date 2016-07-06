@@ -1,0 +1,17 @@
+{
+    "name": "aws-worker",
+    "version": "0.0.1",
+    "description": "",
+    "main": "app.js",
+    "author": "",
+    "license": "MIT",
+    "readme": "",
+    "repository": "https://github.com/godziatkowski/AWS_project",
+    "dependencies": {
+        "async": "^2.0.0-rc.6",
+        "aws-sdk": "^2.4.0",
+        "lwip": "0.0.9",
+        "promise": "^7.1.1",
+        "randomstring": "^1.1.5"
+    }
+}
