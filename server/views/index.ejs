@@ -1,0 +1,96 @@
+<html>
+<head>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <div class="container">
+        <h4>
+            <div class="row">
+                <div class="col-xs-2">
+                    <a href="/upload" class="btn btn-block btn-success">
+                        Upload
+                    </a>
+                </div>
+                <div class="col-xs-5">
+                    <form method="post" action="/resize" onsubmit="beforeSubmit(event)">
+                        <div class="row">
+                            <input type="hidden" class="form-control" name="files" id="file-names-input" />
+                            <div class="col-xs-5 col-xs-offset-2">
+                                <input type="number"
+                                       class="form-control"
+                                       name="rate"
+                                       max="200"
+                                       min="1"
+                                       value="100"
+                                       style="width: 80%; display: inline" /> %
+                            </div>
+                            <div class="col-xs-5">
+                                <button class="btn btn-block btn-info" type="submit">Resize</button>
+                            </div>
+                        </div>
+                    </form>                              
+                </div>
+                <div class="col-xs-5">
+                    <form method="post" action="/rotate" onsubmit="beforeSubmit(event)">
+                        <div class="row">
+                            <input type="hidden" class="form-control" name="files" id="file-rotate-names-input" />
+                            <div class="col-xs-5 col-xs-offset-2">
+                                <input type="number"
+                                       class="form-control"
+                                       name="angle"
+                                       max="359"
+                                       min="1"
+                                       value="90"
+                                       style="width: 80%; display: inline" /> <strong">&deg;</strong>
+                            </div>
+                            <div class="col-xs-5">
+                                <button class="btn btn-block btn-info" type="submit">Rotate</button>
+                            </div>
+                        </div>
+                    </form>                              
+                </div>
+            </div>
+        </h4>
+        <h4 style="background-color: #F2F2F2;">
+            <div class="row" >            
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-4">Name</div>
+                    <div class="col-xs-3">Size</div>
+                    <div class="col-xs-4">Last modified</div>
+            </div>
+        </h4>
+        <% files.forEach(function(file) { %>
+            <div class="row">
+                <div class="col-xs-1"><input type="checkbox" class="file-checkbox" data-file-name="<%= file.Key %>" /></div>
+                <div class="col-xs-4">
+                    <a href="<%= '/image?src=' + bucket + '/' + file.Key %>"><%= file.Key %></a>
+                </div>
+                <div class="col-xs-3"><%= file.Size %></div>
+                <div class="col-xs-4"><%= file.LastModified %></div>
+            </div>
+            <hr/>
+        <% }); %>
+    </div>
+
+    <script>
+        function beforeSubmit(e) {
+            var fileNames = [];
+            var checkboxes = document.getElementsByClassName('file-checkbox');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    fileNames.push(checkboxes[i].getAttribute('data-file-name'));
+                }
+            }
+
+            if (fileNames.length === 0) {
+                e.preventDefault();
+                return;
+            }
+
+            document.getElementById('file-names-input').value = JSON.stringify(fileNames);
+            document.getElementById('file-rotate-names-input').value = JSON.stringify(fileNames);
+        }
+    </script>
+</body>
+</html>

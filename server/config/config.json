@@ -1,0 +1,11 @@
+{
+    "bucket": "godziatkowski-lab4",
+    "queueUrl": "https://sqs.us-west-2.amazonaws.com/983680736795/GodziatkowskiSQS",
+    "port": 8080,
+    "maxFileSize": 10485760,
+    "simpleDb": {
+        "domains": {
+            "upload": "godziatkowski-app"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "aws-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "MIT",
+  "readme": "",
+  "repository": "https://github.com/godziatkowski/AWS_project",
+  "dependencies": {
+    "async": "^0.2.10",
+    "aws-sdk": "^2.0.0-rc13",
+    "ejs": "^1.0.0",
+    "moment": "^2.5.1",
+    "promise": "^7.1.1",
+    "randomstring": "^1.1.5",
+    "webs-weeia": "0.0.2"
+  }
+}

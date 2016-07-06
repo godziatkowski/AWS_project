@@ -1,0 +1,26 @@
+[
+    {
+        "path": "/",
+        "action": "listFiles"
+    },
+    {
+        "path": "/upload",
+        "action": "uploadFiles"
+    },
+    {
+        "path": "/uploadSucceeded",
+        "action": "uploadSucceeded"
+    },
+    {
+        "path": "/resize",
+        "action": "resize"
+    },
+    {
+        "path": "/rotate",
+        "action": "rotate"
+    },
+    {
+        "path": "/image",
+        "action": "viewImage"
+    }
+]
