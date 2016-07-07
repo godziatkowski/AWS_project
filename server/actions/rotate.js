@@ -1,11 +1,12 @@
-var AWS = require( '../service/aws' ),
+var AWS = require( 'aws-sdk' ),
+//var AWS = require( '../service/aws' ),
         config = require( '../config/config.json' ),
         Promise = require( 'promise' );
 
 var TEMPLATE_NAME = 'rotate.ejs';
 
-//AWS.config.loadFromPath( './config.json' );
-var sqs = AWS.getSqs();
+AWS.config.loadFromPath( './config.json' );
+var sqs = new AWS.SQS();
 
 exports.action = function( request, callback ){
     var files = JSON.parse( request.body.files );

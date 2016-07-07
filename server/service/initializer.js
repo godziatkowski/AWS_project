@@ -1,7 +1,8 @@
-var AWS = require( './aws' ),
+var AWS = require( 'aws-sdk' ),
+//var AWS = require( './aws' ),
         config = require( '../config/config.json' );
 
-//AWS.config.loadFromPath( './config.json' );
+AWS.config.loadFromPath( './config.json' );
 var simpledb = new AWS.SimpleDB();
 
 exports.init = function () {

@@ -1,9 +1,10 @@
-var AWS = require( '../service/aws' ),
+var AWS = require( 'aws-sdk' ),
+//var AWS = require( '../service/aws' ),
         config = require( '../config/config.json' );
 
 var TEMPLATE_NAME = 'index.ejs';
 
-//AWS.config.loadFromPath( './config.json' );
+AWS.config.loadFromPath( './config.json' );
 var s3 = new AWS.S3();
 
 exports.action = function( request, callback ){

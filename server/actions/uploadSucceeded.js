@@ -1,11 +1,12 @@
-var AWS = require( "../service/aws" ),
+var AWS = require( 'aws-sdk' ),
+//var AWS = require( "../service/aws" ),
         config = require( '../config/config.json' ),
         Promise = require( 'promise' ),
         randomstring = require( 'randomstring' );
 
 var TEMPLATE_NAME = 'uploadSucceeded.ejs';
 
-//AWS.config.loadFromPath( './config.json' );
+AWS.config.loadFromPath( './config.json' );
 var s3 = new AWS.S3();
 var simpledb = new AWS.SimpleDB();
 

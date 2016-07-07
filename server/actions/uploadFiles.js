@@ -1,4 +1,5 @@
-var awsConfig = require( '../service/aws' ),
+var awsConfig = require('../config.json'),
+//var awsConfig = require( '../service/aws' ),
         config = require( '../config/config.json' ),
         Policy = require( "../service/s3post" ).Policy,
         S3Form = require( "../service/s3post" ).S3Form;
@@ -39,8 +40,9 @@ function prepareFormFields( request ){
     var s3Form = new S3Form( policy );
 
     var fields = s3Form.generateS3FormFields();
-    s3Form.addS3CredientalsFields( fields, awsConfig.loadCredentials() );
-//    s3Form.addS3CredientalsFields( fields, awsConfig );
+
+//    s3Form.addS3CredientalsFields( fields, awsConfig.loadCredentials() );
+        s3Form.addS3CredientalsFields( fields, awsConfig );
 
     return fields;
 }
